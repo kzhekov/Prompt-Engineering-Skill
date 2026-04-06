@@ -37,7 +37,7 @@ Or copy just the skill file:
 ```bash
 mkdir -p ~/.config/opencode/skills/prompt-engineering
 curl -o ~/.config/opencode/skills/prompt-engineering/SKILL.md \
-  https://raw.githubusercontent.com/kzhekov/prompt-engineering-skill/main/SKILL.md
+  https://raw.githubusercontent.com/kzhekov/Prompt-Engineering-Skill/refs/heads/main/SKILL.md
 ```
 
 OpenCode picks up skills automatically on the next session start — no further configuration required.
@@ -55,7 +55,7 @@ Or copy just the skill file:
 ```bash
 mkdir -p ~/.claude/skills/prompt-engineering
 curl -o ~/.claude/skills/prompt-engineering/SKILL.md \
-  https://raw.githubusercontent.com/kzhekov/prompt-engineering-skill/main/SKILL.md
+  https://raw.githubusercontent.com/kzhekov/Prompt-Engineering-Skill/refs/heads/main/SKILL.md
 ```
 
 This makes the skill available globally across all your projects. To install it for a single project only, use `.claude/skills/prompt-engineering/` inside the project root instead.
