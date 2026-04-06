@@ -1,6 +1,6 @@
-# Prompt Engineering Skill for OpenCode
+# Prompt Engineering Skill
 
-A model-agnostic prompt engineering reference packaged as an [OpenCode](https://opencode.ai) skill. Designed for AI engineers who write and iterate on prompts in code — API calls, agent frameworks, system prompts, and multi-step pipelines.
+A model-agnostic prompt engineering reference packaged as a skill for [OpenCode](https://opencode.ai) and [Claude Code](https://claude.ai/code). Designed for AI engineers who write and iterate on prompts in code — API calls, agent frameworks, system prompts, and multi-step pipelines.
 
 ## What it does
 
@@ -24,20 +24,41 @@ When triggered, this skill gives the AI assistant a structured workflow and refe
 
 ## Installation
 
-Copy the skill directory into your OpenCode skills folder:
+### OpenCode
+
+Clone the repo into your OpenCode skills directory:
+
+```bash
+git clone https://github.com/kzhekov/Prompt-Engineering-Skill ~/.config/opencode/skills/prompt-engineering
+```
+
+Or copy just the skill file:
 
 ```bash
 mkdir -p ~/.config/opencode/skills/prompt-engineering
-cp SKILL.md ~/.config/opencode/skills/prompt-engineering/SKILL.md
-```
-
-Or clone the repo directly into the skills directory:
-
-```bash
-git clone https://github.com/KamenZhekov/prompt-engineering-skill ~/.config/opencode/skills/prompt-engineering
+curl -o ~/.config/opencode/skills/prompt-engineering/SKILL.md \
+  https://raw.githubusercontent.com/kzhekov/Prompt-Engineering-Skill/main/SKILL.md
 ```
 
 OpenCode picks up skills automatically on the next session start — no further configuration required.
+
+### Claude Code
+
+Clone the repo into your global Claude Code skills directory:
+
+```bash
+git clone https://github.com/kzhekov/Prompt-Engineering-Skill ~/.claude/skills/prompt-engineering
+```
+
+Or copy just the skill file:
+
+```bash
+mkdir -p ~/.claude/skills/prompt-engineering
+curl -o ~/.claude/skills/prompt-engineering/SKILL.md \
+  https://raw.githubusercontent.com/kzhekov/Prompt-Engineering-Skill/main/SKILL.md
+```
+
+This makes the skill available globally across all your projects. To install it for a single project only, use `.claude/skills/prompt-engineering/` inside the project root instead.
 
 ## Usage
 
@@ -49,7 +70,7 @@ The skill auto-triggers when you ask about:
 - Making an LLM behave differently
 - Prompt debugging or evaluation
 
-You can also invoke it manually with `/prompt-engineering` in the OpenCode chat.
+You can also invoke it manually with `/prompt-engineering` in OpenCode or Claude Code.
 
 ## License
 
