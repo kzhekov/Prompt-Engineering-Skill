@@ -29,7 +29,7 @@ When triggered, this skill gives the AI assistant a structured workflow and refe
 Clone the repo into your OpenCode skills directory:
 
 ```bash
-git clone https://github.com/kzhekov/Prompt-Engineering-Skill ~/.config/opencode/skills/prompt-engineering
+git clone https://github.com/kzhekov/prompt-engineering-skill ~/.config/opencode/skills/prompt-engineering
 ```
 
 Or copy just the skill file:
@@ -37,7 +37,7 @@ Or copy just the skill file:
 ```bash
 mkdir -p ~/.config/opencode/skills/prompt-engineering
 curl -o ~/.config/opencode/skills/prompt-engineering/SKILL.md \
-  https://raw.githubusercontent.com/kzhekov/Prompt-Engineering-Skill/main/SKILL.md
+  https://raw.githubusercontent.com/kzhekov/prompt-engineering-skill/main/SKILL.md
 ```
 
 OpenCode picks up skills automatically on the next session start — no further configuration required.
@@ -47,7 +47,7 @@ OpenCode picks up skills automatically on the next session start — no further 
 Clone the repo into your global Claude Code skills directory:
 
 ```bash
-git clone https://github.com/kzhekov/Prompt-Engineering-Skill ~/.claude/skills/prompt-engineering
+git clone https://github.com/kzhekov/prompt-engineering-skill ~/.claude/skills/prompt-engineering
 ```
 
 Or copy just the skill file:
@@ -55,7 +55,7 @@ Or copy just the skill file:
 ```bash
 mkdir -p ~/.claude/skills/prompt-engineering
 curl -o ~/.claude/skills/prompt-engineering/SKILL.md \
-  https://raw.githubusercontent.com/kzhekov/Prompt-Engineering-Skill/main/SKILL.md
+  https://raw.githubusercontent.com/kzhekov/prompt-engineering-skill/main/SKILL.md
 ```
 
 This makes the skill available globally across all your projects. To install it for a single project only, use `.claude/skills/prompt-engineering/` inside the project root instead.
