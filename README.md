@@ -1,68 +1,72 @@
-# Prompt Engineering Skill
+# Prompt Engineering Skills
 
-A model-agnostic prompt engineering reference packaged as a skill for [OpenCode](https://opencode.ai) and [Claude Code](https://claude.ai/code). Designed for AI engineers who write and iterate on prompts in code — API calls, agent frameworks, system prompts, and multi-step pipelines.
+A collection of model-agnostic prompt engineering skills for [OpenCode](https://opencode.ai) and [Claude Code](https://claude.ai/code). Designed for AI engineers who write and iterate on prompts in code — API calls, agent frameworks, system prompts, and multi-step pipelines.
 
-## What it does
+## Skills
 
-When triggered, this skill gives the AI assistant a structured workflow and reference covering 13 techniques for writing effective prompts, a pre-delivery checklist, and a debugging table for common failure modes. It works across all major providers: Anthropic, OpenAI, Google, Azure, and open-source models.
+The collection is structured as one router skill and six focused sub-skills. The router handles every prompt task and loads sub-skills on demand for deeper reference.
 
-## Techniques covered
-
-1. Clarity and specificity
-2. Structured delimiters (XML tags, markdown)
-3. Role and persona assignment
-4. Few-shot (multishot) prompting
-5. Chain of thought (CoT)
-6. Prompt chaining
-7. Grounding and hallucination reduction
-8. Output consistency
-9. Long context handling
-10. Security and robustness (prompt injection defense)
-11. Tool use and function calling
-12. Multi-turn and agent patterns
-13. Message placement across providers
+| Skill | Description |
+|-------|-------------|
+| `prompt-engineering` | Router — entry point for all prompt tasks. Covers the core workflow, model selection guidance, a technique quick-reference table, and a full design checklist and debugging table. |
+| `prompt-clarity-and-structure` | Vague prompts and inconsistent output. Covers clarity, specificity, structured delimiters, role/persona assignment, few-shot prompting, and output consistency. |
+| `prompt-reasoning-and-chaining` | Multi-step reasoning and complex workflow decomposition. Covers chain-of-thought levels, structured reasoning, reasoning model caveats, prompt chaining patterns, inter-step validation, and shared concept alignment. |
+| `prompt-grounding-and-rag` | Hallucinations and RAG pipelines. Covers quote-then-answer, source restriction, confidence calibration, long context handling, lost-in-the-middle, chunking strategies, and reranking. |
+| `prompt-agents-and-tools` | Tool-using agents and multi-agent systems. Covers tool descriptions, schema design, tool selection, multi-tool orchestration, error handling, context window management, termination conditions, state management, and handoff patterns. |
+| `prompt-security-and-production` | Production deployment. Covers prompt injection defense, sandwich defense, canary tokens, data-borne injection, provider portability, negative constraint pitfalls, prompt caching, and multimodal prompting. |
+| `prompt-evaluation` | Measuring and iterating on prompt quality. Covers eval set design, metric selection, LLM-as-judge, A/B comparison, regression testing after model upgrades, and production monitoring. |
 
 ## Installation
 
-### OpenCode
+### Install all skills
 
-Clone the repo into your OpenCode skills directory:
-
-```bash
-git clone https://github.com/kzhekov/prompt-engineering-skill ~/.config/opencode/skills/prompt-engineering
-```
-
-Or copy just the skill file:
+**OpenCode:**
 
 ```bash
-mkdir -p ~/.config/opencode/skills/prompt-engineering
-curl -o ~/.config/opencode/skills/prompt-engineering/SKILL.md \
-  https://raw.githubusercontent.com/kzhekov/prompt-engineering-skill/refs/heads/main/SKILL.md
+for skill in prompt-engineering prompt-clarity-and-structure prompt-reasoning-and-chaining prompt-grounding-and-rag prompt-agents-and-tools prompt-security-and-production prompt-evaluation; do
+  mkdir -p ~/.config/opencode/skills/$skill
+  curl -fsSL https://raw.githubusercontent.com/kzhekov/Prompt-Engineering-Skill/refs/heads/main/$skill/SKILL.md \
+    -o ~/.config/opencode/skills/$skill/SKILL.md
+done
 ```
 
-OpenCode picks up skills automatically on the next session start — no further configuration required.
-
-### Claude Code
-
-Clone the repo into your global Claude Code skills directory:
+**Claude Code:**
 
 ```bash
-git clone https://github.com/kzhekov/prompt-engineering-skill ~/.claude/skills/prompt-engineering
+for skill in prompt-engineering prompt-clarity-and-structure prompt-reasoning-and-chaining prompt-grounding-and-rag prompt-agents-and-tools prompt-security-and-production prompt-evaluation; do
+  mkdir -p ~/.claude/skills/$skill
+  curl -fsSL https://raw.githubusercontent.com/kzhekov/Prompt-Engineering-Skill/refs/heads/main/$skill/SKILL.md \
+    -o ~/.claude/skills/$skill/SKILL.md
+done
 ```
 
-Or copy just the skill file:
+### Install a single skill
+
+Replace `<skill-name>` with the skill you want (e.g. `prompt-grounding-and-rag`).
+
+**OpenCode:**
 
 ```bash
-mkdir -p ~/.claude/skills/prompt-engineering
-curl -o ~/.claude/skills/prompt-engineering/SKILL.md \
-  https://raw.githubusercontent.com/kzhekov/prompt-engineering-skill/refs/heads/main/SKILL.md
+mkdir -p ~/.config/opencode/skills/<skill-name>
+curl -fsSL https://raw.githubusercontent.com/kzhekov/Prompt-Engineering-Skill/refs/heads/main/<skill-name>/SKILL.md \
+  -o ~/.config/opencode/skills/<skill-name>/SKILL.md
 ```
 
-This makes the skill available globally across all your projects. To install it for a single project only, use `.claude/skills/prompt-engineering/` inside the project root instead.
+**Claude Code:**
+
+```bash
+mkdir -p ~/.claude/skills/<skill-name>
+curl -fsSL https://raw.githubusercontent.com/kzhekov/Prompt-Engineering-Skill/refs/heads/main/<skill-name>/SKILL.md \
+  -o ~/.claude/skills/<skill-name>/SKILL.md
+```
+
+For Claude Code, installing into `~/.claude/skills/` makes the skill available globally across all projects. To scope it to a single project, use `.claude/skills/<skill-name>/` inside the project root instead.
+
+Skills are picked up automatically on the next session start.
 
 ## Usage
 
-The skill auto-triggers when you ask about:
+The `prompt-engineering` router skill auto-triggers when you ask about:
 
 - Writing or improving prompts
 - System prompts or agent instructions
@@ -70,7 +74,7 @@ The skill auto-triggers when you ask about:
 - Making an LLM behave differently
 - Prompt debugging or evaluation
 
-You can also invoke it manually with `/prompt-engineering` in OpenCode or Claude Code.
+You can also invoke any skill manually with `/prompt-engineering`, `/prompt-grounding-and-rag`, etc.
 
 ## License
 
