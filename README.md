@@ -25,7 +25,7 @@ The collection is structured as one router skill and six focused sub-skills. The
 ```bash
 for skill in prompt-engineering prompt-clarity-and-structure prompt-reasoning-and-chaining prompt-grounding-and-rag prompt-agents-and-tools prompt-security-and-production prompt-evaluation; do
   mkdir -p ~/.config/opencode/skills/$skill
-  curl -fsSL https://raw.githubusercontent.com/kzhekov/Prompt-Engineering-Skill/refs/heads/main/$skill/SKILL.md \
+  curl -fsSL https://raw.githubusercontent.com/kzhekov/prompt-engineering-skill/refs/heads/main/$skill/SKILL.md \
     -o ~/.config/opencode/skills/$skill/SKILL.md
 done
 ```
@@ -35,7 +35,7 @@ done
 ```bash
 for skill in prompt-engineering prompt-clarity-and-structure prompt-reasoning-and-chaining prompt-grounding-and-rag prompt-agents-and-tools prompt-security-and-production prompt-evaluation; do
   mkdir -p ~/.claude/skills/$skill
-  curl -fsSL https://raw.githubusercontent.com/kzhekov/Prompt-Engineering-Skill/refs/heads/main/$skill/SKILL.md \
+  curl -fsSL https://raw.githubusercontent.com/kzhekov/prompt-engineering-skill/refs/heads/main/$skill/SKILL.md \
     -o ~/.claude/skills/$skill/SKILL.md
 done
 ```
@@ -48,7 +48,7 @@ Replace `<skill-name>` with the skill you want (e.g. `prompt-grounding-and-rag`)
 
 ```bash
 mkdir -p ~/.config/opencode/skills/<skill-name>
-curl -fsSL https://raw.githubusercontent.com/kzhekov/Prompt-Engineering-Skill/refs/heads/main/<skill-name>/SKILL.md \
+curl -fsSL https://raw.githubusercontent.com/kzhekov/prompt-engineering-skill/refs/heads/main/<skill-name>/SKILL.md \
   -o ~/.config/opencode/skills/<skill-name>/SKILL.md
 ```
 
@@ -56,7 +56,7 @@ curl -fsSL https://raw.githubusercontent.com/kzhekov/Prompt-Engineering-Skill/re
 
 ```bash
 mkdir -p ~/.claude/skills/<skill-name>
-curl -fsSL https://raw.githubusercontent.com/kzhekov/Prompt-Engineering-Skill/refs/heads/main/<skill-name>/SKILL.md \
+curl -fsSL https://raw.githubusercontent.com/kzhekov/prompt-engineering-skill/refs/heads/main/<skill-name>/SKILL.md \
   -o ~/.claude/skills/<skill-name>/SKILL.md
 ```
 
